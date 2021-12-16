@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href="css/fontawesome.min.css" type="text/css" media="all" rel="stylesheet">
+        <link href="css/bootstrap.css" type="text/css" media="all" rel="stylesheet">
+		<link href="css/style.css" type="text/css" media="all" rel="stylesheet">
+	</head>
+	<body>
+		<header class="site-header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="dashboard.html"> <img src="images/logo.png" alt="" /> </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navigations">
+                        <div class="topbar">
+                            <ul>
+                                <li>
+                                    <a href="http://localhost:8888/hwcdsb/user-profile ">
+                                        <span class="icon"><i class="fas fa-user"></i></span><span class="name">Phase3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard.html">
+                                        <span class="icon"><i class="fas fa-home"></i></span><span class="name">Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" onclick="window.location.reload()">
+                                        <span class="icon"><i class="fas fa-sync-alt"></i></span><span class="name">Refresh</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="icon"><i class="fas fa-wrench"></i></span><span class="name">Backend</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="icon"><i class="fas fa-plane"></i></span><span class="name">Logout</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="date-time text-end"><span class="date">Friday December 10, 2021 | 01:14:33 AM</span></div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="main">
+            <div class="container-fluid">
+                <div class="card mb-3 school-summary administration-tools">
+                    <div class="card-body">
+                        <div class="page-title-icon">
+                            <a href="administration-tools.html"> <img src="images/icons/ADMINISTRATIONTOOLS.png" /></a>
+                            <a href="users-list.html "> <img src="images/icons/USER_MANAGEMENT.png" /></a>
+                            <a href="archive-list.html"> <img src="images/icons/ARCHIVE_MANAGEMENT.png" /></a>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="select-school">
+                                            <div class="title bg-dark">Select School:</div>
+                                            <select name="" class="school_selecter form-control select2 select2-hidden-accessible" data-select2-id="select2-data-1-6lwl" tabindex="-1" aria-hidden="true">
+                                                <option value="" data-select2-id="select2-data-3-6u5v">Select School</option>
+                                                <option value="140"> 140 - Annunciation of Our Lord Catholic Elementary School </option>
+                                                <option value="590"> 590 - St. Vincent De Paul Catholic Elementary School </option>
+                                                <option value="560"> 560 - Sts. Peter and Paul Catholic Elementary School </option>
+                                            </select>
+                                            <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-2-4eg5" style="width: 444.656px;">
+                                                <span class="selection">
+                                                    <span
+                                                        class="select2-selection select2-selection--single"
+                                                        role="combobox"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false"
+                                                        tabindex="0"
+                                                        aria-disabled="false"
+                                                        aria-labelledby="select2--h9-container"
+                                                        aria-controls="select2--h9-container"
+                                                    >
+                                                        <span class="select2-selection__rendered" id="select2--h9-container" role="textbox" aria-readonly="true" title="Select School">Select School</span>
+                                                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                                                    </span>
+                                                </span>
+                                                <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+
+                                <div class="school_area school_1">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="school-manual-wrap text-start mt-3">
+                                                <div class="title">
+                                                    <span class="bg-dark">School Average: <span class="school_avg"> 0.0 </span> </span>
+                                                </div>
+                                                <ul class="manual-list">
+                                                    <li><span style="min-width: 235px; text-align: right; display: inline-block;">Total Number of Available EAs</span> <input type="text" class="form-control" /></li>
+                                                    <li><span style="min-width: 235px; text-align: right; display: inline-block;">Assignment</span> <input type="text" class="form-control" /></li>
+                                                    <li><span style="min-width: 235px; text-align: right; display: inline-block;">Holdback</span> <input type="text" class="form-control" /></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6" style="margin-top: -80px;">
+                                            <div class="school-title">
+                                                <div class="school-name">School Name</div>
+                                                <div class="student-number">
+                                                    Total Number of Students: <span class="student_count">0</span>
+                                                    <div style="display: none;" class="spinner-border" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="school-info-table">
+                                                <table class="table table-bordered statistics-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="text-center bg-blue">EA Support</th>
+                                                            <th class="text-center bg-blue">Frequency</th>
+                                                            <th class="text-center bg-blue">Range</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center bg-light-gray">1 or 2</td>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">38-55</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center bg-light-gray">0.75</td>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">27-37</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center bg-light-gray">0.5</td>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">18-26</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center bg-light-gray">0.25</td>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">8-17</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">0</td>
+                                                            <td class="text-center bg-light-gray">2-7</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <p><strong>SIS File Upload - Student Record Import</strong></p>
+
+                                <form method="post" enctype="multipart/form-data" class="rubicsImport">
+                                    <input class="form-control mb-3" type="file" name="rubics_import" accept=".xls,.xlsx" />
+                                    <button type="submit" class="btn btn-success btn-save">Import to Database</button>
+                                </form>
+
+                                <!-- <br>
+                                <button type="button" onclick="mergeSchoolRecord()" class="btn btn-primary merge-school-record" >Merge School Record</button>
+                                <br><br>
+                                <button type="button" onclick="updateSchoolName()" class="btn btn-info update-school-name" >Update School Name</button> -->
+
+                                <br />
+                                <br />
+                                <br />
+
+                                <p><strong>SIS File Upload - Assign User to School</strong></p>
+
+                                <form method="post" enctype="multipart/form-data" class="assignSchoolImport">
+                                    <input class="form-control mb-3" type="file" name="assign_school_import" accept=".xls,.xlsx" />
+                                    <button type="submit" class="btn btn-success btn-save-assign-school">Import to Database</button>
+                                </form>
+
+                                <br />
+                                <br />
+                                <br />
+
+                                <p><strong>SIS File Upload - Import New Users</strong></p>
+
+                                <form method="post" enctype="multipart/form-data" class="addNewUsersImport">
+                                    <input class="form-control mb-3" type="file" name="users_import" accept=".xls,.xlsx" />
+                                    <button type="submit" class="btn btn-success btn-save-assign-school">Import to Database</button>
+                                </form>
+                            </div>
+
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+	</body>
+</html>

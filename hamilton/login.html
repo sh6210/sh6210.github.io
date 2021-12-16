@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href="css/fontawesome.min.css" type="text/css" media="all" rel="stylesheet">
+        <link href="css/bootstrap.css" type="text/css" media="all" rel="stylesheet">
+		<link href="css/login.css" type="text/css" media="all" rel="stylesheet">
+
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <section class="col-sm-6 logoWrapper">
+                    <img src="images/login/encaselogo.png" alt="logo">
+                </section>
+                <section class="col-sm-6 loginFormWrapper ">
+                    <div class="login-box">
+                        <form class="login-form" method="post">
+                            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+                            <div class="form-group">
+                                <label class="control-label">EMAIL</label>
+                                <input class="form-control" type="email" name="user_login" placeholder="Email" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">PASSWORD</label>
+                                <input class="form-control" type="password" name="user_password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <div class="utility">
+                                    <div class="animated-checkbox">
+                                        <label class="semibold-text">
+                                        <input type="checkbox" id="remember" name="remember"><span class="label-text">Stay Signed in</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group btn-container">
+                                <button type="submit" class="btn btn-primary btn-block btn-save"> SIGN IN </button>
+                                <p style="margin-top: 15px"><strong>By accessing this portal, you are agreeing to these <a href="#" data-toggle="modal" data-target="#myModal">Terms of Use</a>.</strong></p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                        <div class="login-footer"> <img src="images/login/login-logo.png" alt="logo"> </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

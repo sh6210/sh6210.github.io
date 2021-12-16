@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href="css/fontawesome.min.css" type="text/css" media="all" rel="stylesheet">
+        <link href="css/bootstrap.css" type="text/css" media="all" rel="stylesheet">
+		<link href="css/style.css" type="text/css" media="all" rel="stylesheet">
+	</head>
+	<body>
+		<header class="site-header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="dashboard.html"> <img src="images/logo.png" alt="" /> </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navigations">
+                        <div class="topbar">
+                            <ul>
+                                <li>
+                                    <a href="user-profile.html">
+                                        <span class="icon"><i class="fas fa-user"></i></span><span class="name">Phase3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard.html">
+                                        <span class="icon"><i class="fas fa-home"></i></span><span class="name">Home</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" onclick="window.location.reload()">
+                                        <span class="icon"><i class="fas fa-sync-alt"></i></span><span class="name">Refresh</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="icon"><i class="fas fa-wrench"></i></span><span class="name">Backend</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="icon"><i class="fas fa-plane"></i></span><span class="name">Logout</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <!-- <li class="nav-item"> <a class="nav-link" href="http://localhost:8888/hwcdsb/student-administration"> <span class="icon"><i class="fas fa-user-plus"></i></span> Add </a> </li> -->
+                                <!-- <li class="nav-item"> <a class="nav-link" href="http://localhost:8888/hwcdsb/student-edit"> <span class="icon"><i class="fas fa-user-edit"></i></span> Edit </a> </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost:8888/hwcdsb/dashboard">
+                                        <span class="icon"><i class="fas fa-home"></i></span> Home
+                                    </a>
+                                </li>
+
+                                <!-- <li class="nav-item"> <a class="nav-link" href="javascript:;"> <span class="icon"><i class="fas fa-trash-alt"></i></span> Delete </a> </li> -->
+                                <!-- <li class="nav-item"> <a class="nav-link" href="javascript:;"> <span class="icon"><i class="far fa-copy"></i></span> Duplicate </a> </li> -->
+
+                                <li class="nav-item">
+                                    <a class="nav-link" onclick="sertStatus()" href="javascript:;">
+                                        <span class="icon"> <i class="far fa-check-circle"></i></span> Submit
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:;" data-bs-toggle="modal" data-bs-target="#archive">
+                                        <span class="icon"><i class="fas fa-save"></i></span> Global Archive
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://localhost:8888/hwcdsb/global-archive-list">
+                                        <span class="icon"><i class="fas fa-list"></i></span> View All Archive
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <div class="main">
+            <div class="container"> <div class="row"> <div class="message"></div> </div></div>
+            <div class="container-fluid">
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <div class="datatable">
+                            <table id="myPinTable" class="table table-bordered align-middle">
+                                <thead>
+                                    <tr>
+                                        <th data-orderable="false" style="width: 40px;min-width: 40px;" class="text-center bg-dark p-1 first "> <img src="images/tableicon.png"> </th>
+                                        <th data-orderable="false" class="text-center bg-dark width-0"><span>All Required Dates Entered </span></th>
+                                        <th class="text-center bg-dark width-0"><span>Student ID</span></th>
+                                        <th class="text-center bg-dark first-name-width"><span>Student First&nbsp;Name</span> </th>
+                                        <th class="text-center bg-dark last-name-width"><span>Student Last&nbsp;Name</span></th>
+                                        <th class="text-center bg-dark oen-id-width"><span>OEN ID</span></th>
+                                        <th class="text-center bg-dark school-width"><span>School</span></th>
+                                        <th class="text-center bg-dark width-0"> <span>Grade</span></th>
+                                        <th class="text-center bg-dark school-year-width"><span>School Year</span></th>
+                                        <th class="text-center bg-dark width-0"><span>Status Indicator Code</span></th>
+                                        <th class="text-center bg-dark width-0"><span>IEP indicator</span></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">SERT</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">CRT</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">Principal</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button style="border: 0px; padding: 0;" onclick="pinRecord(45)" class="button button-outline-info pinButton"><img src="images/location-pin.png" /></button></td>
+                                        <td><span class="text-danger"> <i class="fas fa-times"></i> </span></td>
+                                        <td><a target="_blank" href="student-administration.html">32667313</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Renz Joseph</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Abon</a></td>
+                                        <td><a target="_blank" href="student-administration.html">424671022</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Bishop Ryan Catholic Secondary School</a></td>
+                                        <td><a target="_blank" href="student-administration.html">12</a></td>
+                                        <td><a target="_blank" href="student-administration.html">20202021</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Active</a></td>
+                                        <td><a target="_blank" href="student-administration.html">N</a></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(45, 1,0 )" class="form-check-input switch-one sert sert-status" data-sid="45" type="checkbox" /></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(45, 2,0 )" class="form-check-input switch-two crt crt-status" data-sid="45" type="checkbox"/></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(45, 3,0 )" class="form-check-input switch-three principal principal-status" data-sid="45" type="checkbox"/></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <form id="myTableFilter" method="GET">
+                                <div class="advance-search-grid">
+                                    <div class="item">
+                                        <div class="filter">
+                                            <span class="icon">
+                                                <i class="fas fa-filter"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="item select">
+                                        <div class="select-school">
+                                            <select required class="form-control myTableFilter-school select2" name="school_code">
+                                                <option value="">Select School</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="search-radio">
+                                            <ul>
+                                                <li class="label-red">
+                                                    <input type="radio" id="principalStatusRed" value="0" name="principal_status">
+                                                    <label for="principalStatusRed">Red</label>
+
+                                                    <div class="check"></div>
+                                                </li>
+                                                <li class="label-green">
+                                                    <input type="radio" id="principalStatusGreen"  value="1" name="principal_status" >
+                                                    <label for="principalStatusGreen">Green</label>
+
+                                                    <div class="check"></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="search-btns">
+                                            <button type="submit" class="btn btn-primary">Advance Search</button>
+                                            <div class="spinner-border text-success advanceSearchLoader" style="display: none;" role="status"><span class="sr-only">Loading...</span></div>
+                                            <a class="btn btn-success cancelSearch" style="display: none;" href="<?php echo site_url('student-list/'); ?>"> Reset Search </a>
+                                            <button type="button" id="filterArchive" class="btn btn-info cancelSearch" style="display: none;">Save To Archive This List</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-1">
+                    <div class="card-body">
+                        <div class="datatable">
+                           <div id="tableDiv">
+                             <table id="myTable"  class="table table-bordered align-middle display">
+                                <thead>
+                                    <tr>
+                                        <th data-orderable="false" style="width: 40px;min-width: 40px;" class="text-center bg-dark p-1 first sort-by-name-desc"> <img src="images/tableicon.png"> </th>
+                                        <th data-orderable="false" class="text-center bg-dark width-0"><span>All Required Dates Entered </span></th>
+                                        <th class="text-center bg-dark width-0"><span>Student ID</span></th>
+                                        <th class="text-center bg-dark first-name-width"><span>Student First&nbsp;Name</span></th>
+                                        <th class="text-center bg-dark last-name-width"><span>Student Last&nbsp;Name</span></th>
+                                        <th class="text-center bg-dark oen-id-width"><span>OEN ID</span></th>
+                                        <th class="text-center bg-dark school-width"><span>School</span></th>
+                                        <th class="text-center bg-dark width-0 sort-by-grade-desc "><span>Grade</span></th>
+                                        <th class="text-center bg-dark school-year-width"><span>School Year</span></th>
+                                        <th class="text-center bg-dark width-0"><span>Status Indicator Code</span></th>
+                                        <th class="text-center bg-dark width-0"><span>IEP indicator</span></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">SERT</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">CRT</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                        <th class="text-center bg-dark width-0"><div class="tooltipa"><span style="color:#FFFFFF">Principal</span><span class="tooltiptext">Ready For Submission</span></div></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td><button style="border: 0px; padding: 0;" onclick="pinRecord(42)" class="button button-outline-info pinButton"><img src="images/unpin.png" /></button></td>
+                                        <td><span class="text-danger"> <i class="fas fa-times"></i> </span></td>
+                                        <td><a target="_blank" href="student-administration.html">32217291</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Jasmine</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Rebelo</a></td>
+                                        <td><a target="_blank" href="student-administration.html">164243966</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Bishop Ryan Catholic Secondary School</a></td>
+                                        <td><a target="_blank" href="student-administration.html">11</a></td>
+                                        <td><a target="_blank" href="student-administration.html">20202021</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Active</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Y</a></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(42, 1,0 )" class="form-check-input switch-one sert sert-status" data-sid="42" type="checkbox" /></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(42, 2,1 )" class="form-check-input switch-two crt crt-status" data-sid="42" type="checkbox" checked=""/></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(42, 3,1 )" class="form-check-input switch-three principal principal-status" data-sid="42" type="checkbox" checked=""/></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button style="border: 0px; padding: 0;" onclick="pinRecord(43)" class="button button-outline-info pinButton"><img src="images/unpin.png" /></button></td>
+                                        <td><span class="text-success"> <i class="fas fa-check"></i> </span></td>
+                                        <td><a target="_blank" href="student-administration.html">32308736</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Jade</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Rebelo</a></td>
+                                        <td><a target="_blank" href="student-administration.html">311473953</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Bishop Ryan Catholic Secondary School</a></td>
+                                        <td><a target="_blank" href="student-administration.html">10</a></td>
+                                        <td><a target="_blank" href="student-administration.html">20202021</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Active</a></td>
+                                        <td><a target="_blank" href="student-administration.html">Y</a></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(43, 1,0 )" class="form-check-input switch-one sert sert-status" data-sid="43" type="checkbox" /></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(43, 2,0 )" class="form-check-input switch-two crt crt-status" data-sid="43" type="checkbox"/></div></td>
+                                        <td><div class="form-check form-switch"><input onchange="changeStatus(43, 3,0 )" class="form-check-input switch-three principal principal-status" data-sid="43" type="checkbox"/></div></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                           </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+	</body>
+</html>
