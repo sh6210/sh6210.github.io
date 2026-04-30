@@ -1,466 +1,962 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
-
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sohag Hossain</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords"
-		content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FreeHTML5.co" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohag Hossain — Sr. Software Engineer & Solution Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	<!-- 
-	//////////////////////////////////////////////////////
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #111118;
+            --bg3: #16161f;
+            --surface: #1c1c28;
+            --surface2: #22223a;
+            --border: rgba(255,255,255,0.07);
+            --border2: rgba(255,255,255,0.14);
+            --accent: #7c6dfa;
+            --accent2: #a78bfa;
+            --accent3: #c4b5fd;
+            --gold: #f59e0b;
+            --teal: #2dd4bf;
+            --coral: #f97316;
+            --text: #f0eeff;
+            --text2: #a8a0cc;
+            --text3: #6b6490;
+            --mono: 'DM Mono', monospace;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'Syne', sans-serif;
+        }
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+        html { scroll-behavior: smooth; }
 
-	//////////////////////////////////////////////////////
-	 -->
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1rem 3rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 0.5px solid var(--border);
+        }
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--accent2);
+            letter-spacing: 0.05em;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text2); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent3); }
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="images/favicon.ico">
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            align-items: center;
+        }
+        .hero-tag {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--teal);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .hero-tag::before {
+            content: '';
+            display: inline-block;
+            width: 32px; height: 1px;
+            background: var(--teal);
+        }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        h1 em {
+            font-style: italic;
+            color: var(--accent2);
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text2);
+            line-height: 1.8;
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+        }
+        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary {
+            padding: 0.85rem 2rem;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+        .btn-ghost {
+            padding: 0.85rem 2rem;
+            border: 1px solid var(--border2);
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-ghost:hover { border-color: var(--accent3); color: var(--accent3); }
 
-	<!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
+        /* Hero right: stats panel */
+        .hero-panel {
+            background: var(--surface);
+            border: 0.5px solid var(--border2);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .hero-stat {
+            padding: 1.25rem 0;
+            border-bottom: 0.5px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+        .stat-label { font-size: 0.8rem; color: var(--text3); letter-spacing: 0.06em; text-transform: uppercase; }
+        .stat-val {
+            font-family: var(--mono);
+            font-size: 1.4rem;
+            color: var(--accent2);
+            font-weight: 500;
+        }
+        .stat-val span { font-size: 0.75rem; color: var(--text3); margin-left: 4px; }
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
+        /* Grid lines background */
+        #hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                    linear-gradient(rgba(124,109,250,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(124,109,250,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .glow-orb {
+            position: absolute;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124,109,250,0.12) 0%, transparent 70%);
+            top: -100px; right: -200px;
+            pointer-events: none;
+        }
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+        /* SECTIONS */
+        section { padding: 6rem 3rem; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-eyebrow {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text);
+            margin-bottom: 3.5rem;
+            line-height: 1.15;
+        }
+        .section-title em { font-style: italic; color: var(--accent2); }
 
+        /* ABOUT */
+        #about { background: var(--bg2); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--text2);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 1.25rem;
+        }
+        .about-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+        .link-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1.1rem;
+            border: 0.5px solid var(--border2);
+            border-radius: 100px;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text2);
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .link-pill:hover { border-color: var(--accent); color: var(--accent2); background: rgba(124,109,250,0.06); }
+        .link-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+        /* Skills panel */
+        .skills-panel { }
+        .skill-group { margin-bottom: 2rem; }
+        .skill-group-title {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text3);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag {
+            padding: 0.3rem 0.75rem;
+            background: var(--surface);
+            border: 0.5px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--text2);
+            letter-spacing: 0.03em;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .skill-tag:hover { border-color: var(--accent); color: var(--accent3); }
+        .skill-tag.highlight { border-color: rgba(124,109,250,0.4); color: var(--accent3); background: rgba(124,109,250,0.08); }
+
+        /* EXPERIENCE */
+        #experience { background: var(--bg); }
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 8px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+        .tl-item {
+            padding-left: 2.5rem;
+            position: relative;
+            margin-bottom: 3.5rem;
+        }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -4px; top: 8px;
+            width: 9px; height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(124,109,250,0.6);
+        }
+        .tl-date {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+        .tl-role {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+        .tl-company {
+            font-size: 0.85rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+            font-family: var(--mono);
+        }
+        .tl-desc {
+            color: var(--text2);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+        .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .tl-tag {
+            padding: 0.2rem 0.6rem;
+            background: rgba(45,212,191,0.08);
+            border: 0.5px solid rgba(45,212,191,0.25);
+            border-radius: 3px;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--teal);
+            letter-spacing: 0.05em;
+        }
+
+        /* PROJECTS */
+        #projects { background: var(--bg2); }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--surface);
+            border: 0.5px solid var(--border);
+            border-radius: 10px;
+            padding: 1.75rem;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--card-accent, var(--accent));
+            opacity: 0.6;
+        }
+        .project-num {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--text3);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+        .project-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .project-client {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--coral);
+            margin-bottom: 1rem;
+            letter-spacing: 0.06em;
+        }
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text2);
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .project-tech span {
+            padding: 0.2rem 0.55rem;
+            background: rgba(255,255,255,0.04);
+            border: 0.5px solid var(--border);
+            border-radius: 3px;
+            font-family: var(--mono);
+            font-size: 0.63rem;
+            color: var(--text3);
+        }
+
+        /* ARTICLES */
+        #articles { background: var(--bg); }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .article-card {
+            background: var(--surface);
+            border: 0.5px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            text-decoration: none;
+            display: block;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .article-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .article-tag {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .article-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            color: var(--text);
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+        }
+        .article-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.7; }
+        .article-arrow {
+            margin-top: 1.5rem;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--accent2);
+        }
+
+        /* CONTACT */
+        #contact { background: var(--bg2); }
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .contact-left p {
+            color: var(--text2); font-size: 1rem; line-height: 1.85; margin-bottom: 1rem;
+        }
+        .contact-links { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        .contact-link {
+            display: flex; align-items: center; gap: 1rem;
+            text-decoration: none; color: var(--text2);
+            font-size: 0.9rem;
+            padding: 1rem 1.25rem;
+            background: var(--surface);
+            border: 0.5px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .contact-link:hover { border-color: var(--accent); color: var(--accent3); }
+        .contact-link .cl-icon {
+            width: 36px; height: 36px;
+            background: var(--surface2);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--accent2);
+            flex-shrink: 0;
+            letter-spacing: 0.05em;
+        }
+        .contact-right {
+            background: var(--surface);
+            border: 0.5px solid var(--border2);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        .contact-right h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text3);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: var(--bg);
+            border: 0.5px solid var(--border2);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-submit:hover { background: var(--accent2); }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 0.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg);
+        }
+        footer p {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--text3);
+            letter-spacing: 0.08em;
+        }
+        .footer-right { display: flex; gap: 1.5rem; }
+        .footer-right a {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--text3);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        .footer-right a:hover { color: var(--accent2); }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: none; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            #hero { padding: 7rem 1.5rem 3rem; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            section { padding: 4rem 1.5rem; }
+            .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
 </head>
+<body>
 
-<body style="background-image: url(images/bg_img.jpg);">
+<nav>
+    <span class="nav-logo">sh6210.github.io</span>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#articles">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-	<div id="fh5co-main">
-		<div class="fh5co-tab-wrap">
-			<ul class="fh5co-tab-menu">
-				<li class="active"><a href="#" data-tab="1"><span class="icon icon-glass"></span><span
-							class="menu-text">Profile</span></a></li>
-				<li><a href="#" data-tab="2"><span class="icon icon-graduation-cap"></span><span
-							class="menu-text">Projects</span></a></li>
-				<li><a href="#" data-tab="3"><span class="icon icon-black-tie"></span><span
-							class="menu-text">Experience</span></a></li>
-				<li><a href="#" data-tab="4" data-pie="yes"><span class="icon icon-fighter-jet"></span><span
-							class="menu-text">Skills</span></a></li>
-			</ul>
-			<div class="fh5co-tab-content active" data-content="1">
-				<div class="fh5co-content-inner text-center">
-					<div class="row row-bottom-padded-sm">
-						<div class="col-md-12">
-							<figure>
-								<img src="images/profile_img.png" class="profile-pic"
-									alt="Free HTML5 Wesbite Template by FreeHTML5.co">
-							</figure>
-							<h1>Sohag Hossain</h1>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="">
-								<div class="fh5co-icon">
-									<i class="icon-graduation-cap theme-color-green"></i>
-								</div>
-								<div class="fh5co-text">
-									<h2>B.Sc. In CSE - 2007-2012</h2>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br><br>
-					<div class="row">
-						<div class="col-md-12 fh5co-counter">
-							<div class="fh5co-number fh5co-left">7+</div>
-							<div class="fh5co-text">
-								<h3 class="border-bottom">Years of experience.</h3>
-								<p class="personal-says">I Architect/Design the software, listen to my above, set the
-									goal and deliver the product with a great satisfaction</p>
-							</div>
-						</div>
-					</div>
-					<ul class="fh5co-social">
-						<li><a href="mailto:shcseilacs@gmail.com"><i class="icon-envelope"></i></a></li>
-						<li><a href="https://twitter.com/sh6210"><i class="icon-twitter"></i></a></li>
-						<li><a href="https://github.com/sh6210"><i class="icon-github"></i></a></li>
-						<li><a href="https://stackoverflow.com/users/3880516/sh6210"><i
-									class="icon-stack-overflow"></i></a></li>
-						<li><a href="https://www.linkedin.com/in/sh6210/"><i class="icon-linkedin"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="fh5co-tab-content" data-content="2">
-				<div class="fh5co-content-inner">
-					<div class="row">
-						<div class="col-md-12">
-							<p>To see more and details, please visit my <i><a
-										href="https://www.linkedin.com/in/sh6210/">LinkedIn Profile</a>.</i></p>
+<!-- HERO -->
+<section id="hero">
+    <div class="glow-orb"></div>
+    <div class="hero-grid">
+        <div>
+            <div class="hero-tag">Available for opportunities</div>
+            <h1>Sohag<br><em>Hossain</em></h1>
+            <p class="hero-desc">
+                Senior Full-Stack Engineer & Solution Architect with 12+ years building scalable systems for government, banking, pharmaceutical, and enterprise sectors across Bangladesh and globally.
+            </p>
+            <div class="hero-ctas">
+                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-ghost">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="hero-stat">
+                <span class="stat-label">Experience</span>
+                <span class="stat-val">12+ <span>years</span></span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-label">Projects Delivered</span>
+                <span class="stat-val">10+ <span>major</span></span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-label">Current Role</span>
+                <span class="stat-val" style="font-size:0.9rem; color: var(--teal);">Sr. Web Developer</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-label">Specializations</span>
+                <span class="stat-val" style="font-size:0.8rem; color:var(--accent2);">PHP · Salesforce · AI</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-label">Location</span>
+                <span class="stat-val" style="font-size:0.85rem; color:var(--text2);">Bangladesh 🇧🇩</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-							<!-- <div class="experience-wrapper">
-								<ul>
-									<li>
-										<span class="project-item"> Sales-Target-Prescription management system for a pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span> 
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</li>
-									<li>
-										<span class="project-item"> Sales-Target-Prescription management system for a pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span> 
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</li>
-									<li>
-										<span class="project-item"> Sales-Target-Prescription management system for a pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span> 
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</li>
-									<li>
-										<span class="project-item"> Sales-Target-Prescription management system for a pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span> 
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</li>
-									<li>
-										<span class="project-item"> Sales-Target-Prescription management system for a pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span> 
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</li>
-								</ul>
-							</div> -->
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-inner fade-in">
+        <div class="section-eyebrow">// about me</div>
+        <h2 class="section-title">Engineer by craft,<br><em>architect by instinct</em></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I'm a Senior Full-Stack Software Engineer and Solution Architect with over 12 years of hands-on experience building high-performance web applications for government agencies, banking institutions, pharmaceutical companies, and large enterprises.</p>
+                <p>I specialize in PHP (Laravel, Symfony), Python (Django), Salesforce (Apex, SOQL), and cloud infrastructure on AWS — with a growing focus on AI-powered integrations, LLMs, RAG systems, and intelligent automation via n8n and MCP.</p>
+                <p>I've led full-cycle development of complex platforms including national-scale government systems used by millions of citizens, Category-1 classified banking software, eKYC solutions, RPA bots, and document management platforms deployed across 10+ financial institutions.</p>
+                <p>I'm flexible across any programming language and thrive on turning complex go-to-market strategies into fully automated, scalable systems.</p>
+                <div class="about-links">
+                    <a href="https://github.com/sh6210" target="_blank" class="link-pill"><span class="dot"></span>GitHub</a>
+                    <a href="https://linkedin.com/in/sh6210" target="_blank" class="link-pill"><span class="dot"></span>LinkedIn</a>
+                    <a href="https://stackoverflow.com/users/3880516/sh6210" target="_blank" class="link-pill"><span class="dot"></span>Stack Overflow</a>
+                    <a href="https://devdojo.com/sh6210" target="_blank" class="link-pill"><span class="dot"></span>DevDojo</a>
+                </div>
+            </div>
+            <div class="skills-panel">
+                <div class="skill-group">
+                    <div class="skill-group-title">Languages</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">PHP</span>
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag highlight">JavaScript</span>
+                        <span class="skill-tag highlight">Apex</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">C / C++</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">PHP Frameworks</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Laravel</span>
+                        <span class="skill-tag highlight">Symfony</span>
+                        <span class="skill-tag">Slim</span>
+                        <span class="skill-tag">CakePHP</span>
+                        <span class="skill-tag">YII</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">JavaScript</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">ReactJS</span>
+                        <span class="skill-tag">VueJS</span>
+                        <span class="skill-tag">AngularJS</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">jQuery</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Salesforce</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Apex</span>
+                        <span class="skill-tag highlight">SOQL</span>
+                        <span class="skill-tag">LWC</span>
+                        <span class="skill-tag">Flow Builder</span>
+                        <span class="skill-tag">Visual-Force</span>
+                        <span class="skill-tag">Conga</span>
+                        <span class="skill-tag">Bulk API 2.0</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">AI & Automation</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">LLM Integration</span>
+                        <span class="skill-tag highlight">n8n</span>
+                        <span class="skill-tag highlight">RAG</span>
+                        <span class="skill-tag">MCP</span>
+                        <span class="skill-tag">RPA / Selenium</span>
+                        <span class="skill-tag">AI Agents</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Cloud & Data</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Kafka</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-							<div class="experience-wrapper">
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Sales-Target-Prescription management system for a
-											pharmaceutical company (Roche) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, AngularJs</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Inventory Application </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, JavaScript, AngularJs</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Surf horn, making friends, creating posts, like, share, comment like facebook </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, JavaScript, AngularJs</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Book hotel room and ride </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Slim, Mysql, JavaScript, JQuery, AngularJs</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item">Bangladesh National AID management system (Govt.) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">CakePHP, Mysql, JQuery, JavaScript</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> DocuDEX (Document Management System) for many Bank of Bangladesh </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Symfony, Mysql, JavaScript, JQuery</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> EKYC (Electronically know your customer)</span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Symfony, MySQL, JavaScript</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> HRMS for TIB </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, JavaScript</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Land Record (Govt.) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, JavaScript, LiveWire</span>
-										</span>
-									</div>
-								</div>
-								<div class="fh5co-feature">
-									<div class="each-project">
-										<span class="project-item"> Case Management (Govt.) </span>
-										<br>
-										<span class="project-technologies">
-											<span class="technologies-title">Technology Used:</span>
-											<span class="technologies-names">Laravel, Mysql, JavaScript, LiveWire</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="fh5co-tab-content" data-content="3">
-				<div class="fh5co-content-inner">
-					<div class="row">
-						<div class="col-md-12">
-							<p>I have the privilege to work with these cool companies.</p>
-							<div class="fh5co-feature">
-								<div class="fh5co-icon">
-									<i class="icon-black-tie"></i>
-								</div>
-								<div class="fh5co-text">
-									<h2>July 20019 - Present</h2>
-									<h3><a href="http://www.devnetlimited.com/">Devnet Ltd.</a></h3>
-									<p>Position: Sr. Software Engineer</p>
-								</div>
-							</div>
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="section-inner fade-in">
+        <div class="section-eyebrow">// work history</div>
+        <h2 class="section-title">Where I've<br><em>built things</em></h2>
+        <div class="timeline">
 
-							<div class="fh5co-feature">
-								<div class="fh5co-icon">
-									<i class="icon-black-tie"></i>
-								</div>
-								<div class="fh5co-text">
-									<h2>Apr 20017- Jun 2019</h2>
-									<h3><a href="https://sebpo.com/">SEBPO</a></h3>
-									<p>Position: Sr. Software Engineer</p>
-								</div>
-							</div>
+            <div class="tl-item">
+                <div class="tl-date">July 2022 — Present</div>
+                <div class="tl-role">Sr. Web Developer</div>
+                <div class="tl-company">AchieveTestPrep · achievetestprep.com</div>
+                <p class="tl-desc">Architect and develop Salesforce CRM enhancements maintaining governor limits and optimizing SOQL query performance. Lead API integrations with third-party platforms; manage Conga for automated document generation. Designed and implemented custom ETL pipelines using Bulk API 2.0, PHP, Python, and PostgreSQL for seamless cross-system data migration. Produce advanced Visual-Force reports and business intelligence dashboards.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Salesforce</span>
+                    <span class="tl-tag">Apex</span>
+                    <span class="tl-tag">PHP</span>
+                    <span class="tl-tag">Python</span>
+                    <span class="tl-tag">PostgreSQL</span>
+                    <span class="tl-tag">JavaScript</span>
+                    <span class="tl-tag">Bulk API 2.0</span>
+                </div>
+            </div>
 
-							<div class="fh5co-feature">
-								<div class="fh5co-icon">
-									<i class="icon-black-tie"></i>
-								</div>
-								<div class="fh5co-text">
-									<h2>2014-2017</h2>
-									<h3><a href="#">Preview ICT Ltd.</a></h3>
-									<p>Software Engineer</p>
-								</div>
-							</div>
+            <div class="tl-item">
+                <div class="tl-date">June 2019 — June 2022</div>
+                <div class="tl-role">Sr. Software Engineer</div>
+                <div class="tl-company">Devnet Ltd. · devnetlimited.com</div>
+                <p class="tl-desc">Designed and delivered the Audit Management System for Bangladesh Bank — recognized as the first Category-1 audit software in Bangladesh. Developed a full-featured eKYC solution for Bank Asia integrating image processing, OCR, and government data validation APIs. Contributed to DocuDex, deployed across 10+ financial institutions. Led architecture decisions, database design, and performance optimization for enterprise-scale workloads.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Symfony</span>
+                    <span class="tl-tag">Laravel</span>
+                    <span class="tl-tag">Python</span>
+                    <span class="tl-tag">MySQL</span>
+                    <span class="tl-tag">Oracle</span>
+                    <span class="tl-tag">JavaScript</span>
+                </div>
+            </div>
 
-						</div>
+            <div class="tl-item">
+                <div class="tl-date">April 2017 — May 2019</div>
+                <div class="tl-role">Sr. Software Engineer</div>
+                <div class="tl-company">ServiceEngineBPO (SEBPO) · sebpo.com</div>
+                <p class="tl-desc">Built and maintained multiple client-facing web applications using Laravel and Lumen with RESTful API architecture. Developed HRMS modules including attendance, payroll, leave management, and income tax calculation for TIB. Created the Surf-Horn social platform with real-time features: posts, groups, events, weather feed, and intelligent recommendations.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Laravel</span>
+                    <span class="tl-tag">Lumen</span>
+                    <span class="tl-tag">MySQL</span>
+                    <span class="tl-tag">AngularJS</span>
+                    <span class="tl-tag">jQuery</span>
+                </div>
+            </div>
 
-					</div>
-				</div>
-			</div>
-			<div class="fh5co-tab-content" data-content="4">
-				<div class="fh5co-content-inner">
-					<div class="row">
-						<div class="col-md-12">
-							<p>Operating System</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="95"><span><strong>MacOs</strong>95%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="95"><span><strong>Ubuntu</strong>95%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="95"><span><strong>Windows</strong>95%</span></div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-12">
-							<p>Languages</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>PHP</strong>80%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>JavaScript</strong>80%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="65"><span><strong>C | C++</strong>65%</span></div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-12">
-							<p>Framework and Library (PHP Based)</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>Laravel</strong>95%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>Symfony</strong>80%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>CakePHP</strong>80%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="90"><span><strong>Slim</strong>90%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>YII</strong>70%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>Codeignitor</strong>70%</span></div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-12">
-							<p>Framework and Library (JavaScript Based)</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>VanillaJs</strong>70%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="90"><span><strong>JQuery</strong>90%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>AngularJs</strong>80%</span></div>
-						</div>
-						<!-- <div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>VueJs</strong>70%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="50"><span><strong>ReactJs</strong>50%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>Express</strong>70%</span></div>
-						</div> -->
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-12">
-							<p>Databases</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="95"><span><strong>MySQL</strong>95%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>PostgreSQL</strong>80%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="80"><span><strong>MongoDB</strong>80%</span></div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-12">
-							<p>ORM</p>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="95"><span><strong>Eloquent</strong>95%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="70"><span><strong>Doctrine</strong>70%</span></div>
-						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center">
-							<div class="chart" data-percent="75"><span><strong>CakePHP ORM | Propel</strong>75%</span>
-							</div>
-						</div>
-					</div>
+            <div class="tl-item">
+                <div class="tl-date">January 2014 — February 2017</div>
+                <div class="tl-role">Software Engineer</div>
+                <div class="tl-company">PreviewICT Ltd. · previewict.com</div>
+                <p class="tl-desc">Developed the Bangladesh National Aid Management System for the government. Built the National Land Record system using Laravel and LiveWire enabling digital tracking of land ownership. Delivered inventory, warehouse, and sales target management applications. Participated in full SDLC from requirements gathering to production deployment.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Laravel</span>
+                    <span class="tl-tag">CakePHP</span>
+                    <span class="tl-tag">Slim</span>
+                    <span class="tl-tag">LiveWire</span>
+                    <span class="tl-tag">MySQL</span>
+                    <span class="tl-tag">AngularJS</span>
+                </div>
+            </div>
 
-				</div>
-			</div>
-		</div>
-		<footer id="fh5co-footer">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<span>Have an Idea or project, Please <a href="mailto:shcseilacs@gmail.com"><i class="icon-envelope"></i> Email me </i></a></span>
-				</div>
-			</div>
-		</footer>
-	</div>
+        </div>
+    </div>
+</section>
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="section-inner fade-in">
+        <div class="section-eyebrow">// key projects</div>
+        <h2 class="section-title">Systems I've<br><em>shipped</em></h2>
+        <div class="projects-grid">
+
+            <div class="project-card" style="--card-accent: #7c6dfa;">
+                <div class="project-num">01 · BANKING</div>
+                <div class="project-title">Audit Management System</div>
+                <div class="project-client">Bangladesh Bank</div>
+                <p class="project-desc">First Category-1 classified audit software in Bangladesh. Supports multi-level audit creation, real-time SLA breach notifications, employee performance measurement, and advanced multi-level reporting.</p>
+                <div class="project-tech">
+                    <span>Symfony</span><span>Oracle</span><span>JavaScript</span><span>jQuery</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #2dd4bf;">
+                <div class="project-num">02 · FINTECH</div>
+                <div class="project-title">eKYC System</div>
+                <div class="project-client">Bank Asia</div>
+                <p class="project-desc">End-to-end electronic KYC solution integrating government identity servers, OCR, and image processing. Automates bank account creation and feeds verified data directly to the mobile banking application.</p>
+                <div class="project-tech">
+                    <span>Symfony</span><span>MySQL</span><span>OCR</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #f59e0b;">
+                <div class="project-num">03 · DOCUMENT MGMT</div>
+                <div class="project-title">DocuDex</div>
+                <div class="project-client">10+ Banks & Enterprises</div>
+                <p class="project-desc">Enterprise document management system handling full document lifecycle, workflow routing, audit trails, and role-based access. Deployed at over 10 banks and financial institutions nationwide.</p>
+                <div class="project-tech">
+                    <span>Symfony</span><span>MySQL</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #f97316;">
+                <div class="project-num">04 · AUTOMATION</div>
+                <div class="project-title">RPA Bot System</div>
+                <div class="project-client">Prime Bank</div>
+                <p class="project-desc">Two autonomous bots to eliminate manual data entry: one retrieves workable data, logs in, and submits forms; another verifies submissions and tracks success/error states with real-time admin alerting.</p>
+                <div class="project-tech">
+                    <span>Python</span><span>Selenium</span><span>MySQL</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #ec4899;">
+                <div class="project-num">05 · PHARMA</div>
+                <div class="project-title">Sales-Target & Prescription Mgmt</div>
+                <div class="project-client">Roche Pharmaceutical</div>
+                <p class="project-desc">Web-based platform managing end-to-end sales data, prescription analysis, doctor engagement tracking, target finalization, and multi-dimensional advanced reporting across sales hierarchies.</p>
+                <div class="project-tech">
+                    <span>Laravel</span><span>MySQL</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #22d3ee;">
+                <div class="project-num">06 · GOVERNMENT</div>
+                <div class="project-title">National Land Record System</div>
+                <div class="project-client">Government of Bangladesh</div>
+                <p class="project-desc">Digitizes land ownership history with full chain-of-title tracking. Features role-permission management, historical record linkage, and comprehensive report generation for millions of land records.</p>
+                <div class="project-tech">
+                    <span>Laravel</span><span>LiveWire</span><span>MySQL</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #84cc16;">
+                <div class="project-num">07 · GOVERNMENT</div>
+                <div class="project-title">National Aid Management System</div>
+                <div class="project-client">Government of Bangladesh</div>
+                <p class="project-desc">National-scale aid distribution system with role-permission management, relationship mapping between beneficiaries, area grouping, distribution planning, and multi-level report generation.</p>
+                <div class="project-tech">
+                    <span>CakePHP</span><span>MySQL</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #a78bfa;">
+                <div class="project-num">08 · CRM</div>
+                <div class="project-title">Salesforce CRM Platform</div>
+                <div class="project-client">AchieveTestPrep</div>
+                <p class="project-desc">Enhanced CRM with GTM workflow automation covering lead management, opportunity pipeline, CPQ, and post-sale onboarding. Significantly reduced SOQL query count and CPU execution time through systematic optimization.</p>
+                <div class="project-tech">
+                    <span>Apex</span><span>SOQL</span><span>LWC</span><span>Visual-Force</span><span>Conga</span>
+                </div>
+            </div>
+
+            <div class="project-card" style="--card-accent: #f43f5e;">
+                <div class="project-num">09 · HRMS</div>
+                <div class="project-title">HR Management System</div>
+                <div class="project-client">TIB</div>
+                <p class="project-desc">Comprehensive HRMS covering attendance, leave management, timesheets, training, payroll processing, employee self-service, provident fund management, and income tax calculation.</p>
+                <div class="project-tech">
+                    <span>Laravel</span><span>MySQL</span><span>JavaScript</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+    <div class="section-inner fade-in">
+        <div class="section-eyebrow">// published writing</div>
+        <h2 class="section-title">Thoughts &<br><em>articles</em></h2>
+        <div class="articles-grid">
+            <a href="https://www.turing.com/kb/laravel-vs-symfony" target="_blank" class="article-card">
+                <div class="article-tag">Turing.com · PHP Frameworks</div>
+                <div class="article-title">Laravel vs Symfony: A Deep Comparison</div>
+                <p class="article-desc">An in-depth technical comparison of the two most popular PHP frameworks — covering architecture, performance, use cases, and when to choose one over the other.</p>
+                <div class="article-arrow">Read on Turing →</div>
+            </a>
+            <a href="https://devdojo.com/sh6210" target="_blank" class="article-card">
+                <div class="article-tag">DevDojo · Salesforce</div>
+                <div class="article-title">Sending Email in Salesforce with Apex</div>
+                <p class="article-desc">A practical guide to implementing email-sending functionality in Salesforce using Apex classes, covering different messaging patterns and best practices.</p>
+                <div class="article-arrow">Read on DevDojo →</div>
+            </a>
+            <a href="https://devdojo.com/sh6210" target="_blank" class="article-card">
+                <div class="article-tag">DevDojo · Salesforce Testing</div>
+                <div class="article-title">Testing HttpCalloutMock in Apex</div>
+                <p class="article-desc">How to properly write unit tests for Apex code that makes HTTP callouts, using the HttpCalloutMock interface to simulate external API responses in test context.</p>
+                <div class="article-arrow">Read on DevDojo →</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-inner fade-in">
+        <div class="section-eyebrow">// let's connect</div>
+        <h2 class="section-title">Ready to build<br><em>something great?</em></h2>
+        <div class="contact-wrap">
+            <div class="contact-left">
+                <p>Whether you need a solution architect for a complex system, a Salesforce specialist to automate your go-to-market workflow, or a senior engineer to lead your backend — I'm open to discussing opportunities.</p>
+                <p>I bring 12+ years of delivering systems that actually work at scale, from government platforms serving millions to banking software trusted by regulators.</p>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/sh6210" target="_blank" class="contact-link">
+                        <div class="cl-icon">LI</div>
+                        linkedin.com/in/sh6210
+                    </a>
+                    <a href="https://github.com/sh6210" target="_blank" class="contact-link">
+                        <div class="cl-icon">GH</div>
+                        github.com/sh6210
+                    </a>
+                    <a href="https://stackoverflow.com/users/3880516/sh6210" target="_blank" class="contact-link">
+                        <div class="cl-icon">SO</div>
+                        stackoverflow.com/users/3880516/sh6210
+                    </a>
+                    <a href="https://devdojo.com/sh6210" target="_blank" class="contact-link">
+                        <div class="cl-icon">DD</div>
+                        devdojo.com/sh6210
+                    </a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <h3>Send a message</h3>
+                <div class="form-group">
+                    <label>Your name</label>
+                    <input type="text" placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" placeholder="hello@example.com" />
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button class="form-submit" onclick="alert('Thanks! Please reach out directly via LinkedIn for now.')">Send Message</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Sohag Hossain · B.Sc. in CSE · Bangladesh</p>
+    <div class="footer-right">
+        <a href="#hero">Top</a>
+        <a href="https://github.com/sh6210" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/sh6210" target="_blank">LinkedIn</a>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
-
 </html>
